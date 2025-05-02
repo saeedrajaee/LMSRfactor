@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
+import Link from "next/link";
 
 export default function StandardImageList() {
   return (
@@ -15,7 +16,7 @@ export default function StandardImageList() {
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="/admin/accuTerm.jpg"
+              image="/admin/1.jpg"
               title="green iguana"
             />
             <CardContent>
@@ -27,7 +28,14 @@ export default function StandardImageList() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">ترم انباشتگی</Button>
+              <Button
+                href="/admin/accumulation-term"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                ورود اطلاعات ترم انباشتگی
+              </Button>
             </CardActions>
           </Card>
         </Grid>
@@ -35,19 +43,26 @@ export default function StandardImageList() {
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="/admin/1.jpg"
+              image="/admin/1.png"
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                عنوان دوم
+                جابجایی سنجی
               </Typography>
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              توضیحات
+                توضیحات
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">لینک موضوع دوم</Button>
+              <Button
+                href="/admin/gcp"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                ورود اطلاعات جابجایی سنجی{" "}
+              </Button>
             </CardActions>
           </Card>
         </Grid>
@@ -55,44 +70,58 @@ export default function StandardImageList() {
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="/admin/2.jpg"
+              image="/admin/2.png"
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                موضوع 3
+                دبی پاشش اسید
               </Typography>
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              توضیحات
+                توضیحات
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">لینک موضوع 3</Button>
+              <Button
+                href="/admin/flow"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                ورود اطلاعات دبی پاشش اسید
+              </Button>
             </CardActions>
           </Card>
         </Grid>
       </Grid>
 
-<br/>
+      <br />
 
       <Grid container direction="row" spacing={2}>
         <Grid item xs spacing={2}>
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="/admin/3.jpg"
+              image="/admin/3.png"
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                موضع 4
+                سطح اسید پیزومتر
               </Typography>
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              توضیحات
+                توضیحات
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">لینک موضوع 4</Button>
+              <Button
+                href="/admin/piezometer-acid"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                ورود اطلاعات سطح اسید پیزومتر
+              </Button>
             </CardActions>
           </Card>
         </Grid>
@@ -100,18 +129,26 @@ export default function StandardImageList() {
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="/admin/4.jpg"
+              image="/admin/5.png"
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                موضوع 5
+                دمای پیزومتر
               </Typography>
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-توضیحات              </Typography>
+                توضیحات{" "}
+              </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">5 لینک موضوع</Button>
+              <Button
+                href="/admin/piezometer-temp"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                ورود اطلاعات دمای پیزومتر
+              </Button>
             </CardActions>
           </Card>
         </Grid>
@@ -119,21 +156,90 @@ export default function StandardImageList() {
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="/admin/5.jpg"
+              image="/admin/6.jpeg"
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                موضوع 6
+                غلطت مس
               </Typography>
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-توضیحات              </Typography>
+                توضیحات{" "}
+              </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small"> لینک موضوع 6</Button>
+              <Button
+                href="/admin/copper-concentration"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                {" "}
+                ورود اطلاعات غلطت مس
+              </Button>
             </CardActions>
           </Card>
         </Grid>
+      </Grid>
+
+      <br />
+
+      <Grid container direction="row" spacing={2}>
+        <Grid item xs spacing={2}>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/admin/8.jpg"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                سطح آب چاه
+              </Typography>
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                توضیحات
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                href="/admin/well-water-level"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                ورود اطلاعات سطح آب چاه
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs spacing={2}>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/admin/7.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                پارامترهای شیمیایی{" "}
+              </Typography>
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                توضیحات{" "}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                href="/admin/pls"
+                color="secondary"
+                variant="outlined"
+                size="small"
+              >
+                ورود اطلاعات پارامترهای شیمیایی{" "}
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs spacing={2}></Grid>
       </Grid>
     </>
   );

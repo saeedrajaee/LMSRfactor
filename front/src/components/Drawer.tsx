@@ -29,7 +29,7 @@ const data = [
     {
         id: 'item11',
         label: 'نمای عمومی',
-        path:"/admin/map"
+        path:"/admin"
     },
     {
         id: 'item9',
@@ -47,20 +47,25 @@ const data = [
             { id: 'item10.5', label: 'نمودار پارامترهای شیمیایی pls', path:"/admin/charts/pls" },
         ],
      },
-    {
+     {
         id: 'item1',
         label: 'ورود اطلاعات',
-        children: [
-            { id: 'item1.3', label: 'جابجایی سنجی', path:"/admin/gcp" },
-            { id: 'item2.1', label: 'دبی پاشش اسید',path:"/admin/flow" },
-            { id: 'item3.1', label: 'ترم انباشتگی', path:"/admin/accumulation-term" },
-            { id: 'item4.2', label: 'سطح اسید پیزومتر', path:"/admin/piezometer-acid" },
-            { id: 'item5.1', label: 'دمای پیزومتر' , path:"/admin/piezometer-temp"},
-            { id: 'item6.1', label: 'غلطت مس' , path:"/admin/copper-concentration"},
-            { id: 'item7.1', label: 'پارامترهای شیمیایی PLS' , path:"/admin/pls"},
-            { id: 'item8.1', label: 'سطح آب چاه' , path:"/admin/well-water-level"},
-        ],
+        path:"/admin/dashboard"
     },
+    // {
+    //     id: 'item1',
+    //     label: 'ورود اطلاعات',
+    //     children: [
+    //         { id: 'item1.3', label: 'جابجایی سنجی', path:"/admin/gcp" },
+    //         { id: 'item2.1', label: 'دبی پاشش اسید',path:"/admin/flow" },
+    //         { id: 'item3.1', label: 'ترم انباشتگی', path:"/admin/accumulation-term" },
+    //         { id: 'item4.2', label: 'سطح اسید پیزومتر', path:"/admin/piezometer-acid" },
+    //         { id: 'item5.1', label: 'دمای پیزومتر' , path:"/admin/piezometer-temp"},
+    //         { id: 'item6.1', label: 'غلطت مس' , path:"/admin/copper-concentration"},
+    //         { id: 'item7.1', label: 'پارامترهای شیمیایی PLS' , path:"/admin/pls"},
+    //         { id: 'item8.1', label: 'سطح آب چاه' , path:"/admin/well-water-level"},
+    //     ],
+    // },
     // {
     //     id: 'item1',
     //     label: 'ورود اطلاعات',

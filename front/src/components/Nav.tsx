@@ -41,7 +41,7 @@ export default function Nav() {
             خانه
           </Link>
         </Breadcrumbs>
-        <TextField
+        {/* <TextField
           sx={{ display: { xs: "none", md: "block" } }}
           id="input-with-icon-textfield"
           placeholder="جستجو"
@@ -56,7 +56,7 @@ export default function Nav() {
               ),
             },
           }}
-        />
+        /> */}
       </Stack>
       <Stack direction="row" sx={{ flexDirection: "row-reverse" }}>
         <Button

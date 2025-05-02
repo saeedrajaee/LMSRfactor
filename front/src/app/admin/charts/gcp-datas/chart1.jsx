@@ -11,7 +11,6 @@ import Button from "@mui/material/Button";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 
-
 export default function AreaChart({ data }) {
   const [chartOptions, setChartOptions] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -19,9 +18,7 @@ export default function AreaChart({ data }) {
   const [gcpNameValue, setGcpNameValue] = useState([]);
   const [gcpParameter, setGcpParameter] = useState([]);
 
-
   const drawChart1 = (dataFilter, categories) => {
-
     setChartOptions({
       chart: {
         type: "area",
@@ -99,14 +96,13 @@ export default function AreaChart({ data }) {
 
     const chartData = [];
 
-   
     gcpNameValue.map((n) => {
       const fl = rows.filter(
-        (e) => e.gcpName == n.label && e.hipName === hipName );
-        fl.map((d) => categories.push(d.date));
-        chartData.push({ name: n.label, data: fl.map((e) => e.value) });    
-      });
-
+        (e) => e.gcpName == n.label && e.hipName === hipName
+      );
+      fl.map((d) => categories.push(d.date));
+      chartData.push({ name: n.label, data: fl.map((e) => e.value) });
+    });
 
     if (chartData.length > 0) {
       setLoaded(true);
@@ -114,13 +110,11 @@ export default function AreaChart({ data }) {
     } else {
       setLoaded(false);
     }
-
   };
 
   const handleChangeGcp = (event) => {
     setGcpParameter(event.target.value);
   };
-
 
   // const gcps = [];
   // data.map(
@@ -131,7 +125,6 @@ export default function AreaChart({ data }) {
   //     });
   //   }
   // );
-
 
   const gcps = [];
   const map = new Map();
@@ -144,9 +137,6 @@ export default function AreaChart({ data }) {
       });
     }
   }
-
-  
-
 
   return (
     <div>
@@ -172,8 +162,8 @@ export default function AreaChart({ data }) {
               multiple
               disablePortal
               options={gcps}
-              groupBy={(option) => option.label}
-              getOptionLabel={(option) => option.label}
+              // groupBy={(option) => option.label}
+              // getOptionLabel={(option) => option.label}
               sx={{ width: "100%" }}
               defaultValue={gcpNameValue}
               onChange={(event, newValue) => {
