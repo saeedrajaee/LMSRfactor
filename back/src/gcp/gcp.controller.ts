@@ -8,7 +8,6 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CreateGcpRequest } from './dto/create-gcp.request';
 // import { CurrentUser } from '../auth/current-user.decorator';
 // import { TokenPayload } from '../auth/token-payload.interface';

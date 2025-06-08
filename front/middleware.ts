@@ -1,17 +1,14 @@
-import { NextRequest } from "next/server";
-import authenticated from "@/app/auth/authenticated";
-import { unauthenticatedRoutes } from "@/helpers/routes";
+import { getSession } from "@/lib/session";
+import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  if (
-    !authenticated() &&
-    !unauthenticatedRoutes.some((route) =>
-      request.nextUrl.pathname.startsWith(route.path)
-    )
-  ) {
-    return Response.redirect(new URL("/auth/login", request.url));
-  }
+export default async function middleware(req: NextRequest) {
+  const session = await getSession();
+  if (!session || !session.user)
+    return NextResponse.redirect(new URL("/auth/signin", req.nextUrl));
+
+  NextResponse.next()
 }
+
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|.*\\.png$).*)"],
-};
+    matcher:["/profile"]
+}

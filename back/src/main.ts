@@ -1,19 +1,16 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { Logger } from 'nestjs-pino';
-import cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
-import { NestExpressApplication } from '@nestjs/platform-express';
-import { join } from 'path';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.useStaticAssets(join(__dirname,"..","/public/librarys"))
-
-  app.useLogger(app.get(Logger));
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-  app.use(cookieParser());
-  await app.listen(app.get(ConfigService).getOrThrow('PORT'));
+  const app = await NestFactory.create(AppModule);
+  console.log(".............process.env.PORT.................",process.env.PORT)
+  await app.listen(process.env.PORT ?? 8000);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+    }),
+  );
 }
 bootstrap();

@@ -14,9 +14,12 @@ datasource db {
 }
 
 model User {
-  id               Int                @id @default(autoincrement())
-  email            String             @unique
-  password         String
+  id                 Int     @id @default(autoincrement())
+  name               String
+  email              String  @unique
+  password           String
+  hashedRefreshToken String?
+
   // accumulationTerm AccumulationTerm[]
   // copperConcentration CopperConcentration[]
   // flow                Flow[]
@@ -41,7 +44,7 @@ model AccumulationTerm {
 }
 
 model CopperConcentration {
-  id         Int      @id @default(autoincrement())
+  id         Int    @id @default(autoincrement())
   // userId     Int
   hipName    String
   copConDate String
@@ -51,7 +54,7 @@ model CopperConcentration {
 }
 
 model Flow {
-  id              Int      @id @default(autoincrement())
+  id              Int    @id @default(autoincrement())
   // userId          Int
   hipName         String
   flowDataIntDate String
@@ -62,7 +65,7 @@ model Flow {
 }
 
 model Gcps {
-  id        Int      @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   // userId    Int
   hipName   String
   gcpName   String
@@ -91,7 +94,7 @@ model Gcps {
 }
 
 model PiezometerAcid {
-  id                      Int      @id @default(autoincrement())
+  id                      Int    @id @default(autoincrement())
   // userId                  Int
   hipName                 String
   piezometerName          String
@@ -102,18 +105,18 @@ model PiezometerAcid {
 }
 
 model PiezometerTemp {
-  id             Int      @id @default(autoincrement())
+  id                 Int    @id @default(autoincrement())
   // userId         Int
-  hipName        String
-  piezometerName String
+  hipName            String
+  piezometerName     String
   piezometerTempDate String
-  piezometerTemp Float
-  tempUnit       String
+  piezometerTemp     Float
+  tempUnit           String
   // user           User     @relation(fields: [userId], references: [id])
 }
 
 model Pls {
-  id      Int      @id @default(autoincrement())
+  id      Int    @id @default(autoincrement())
   // userId  Int
   hipName String
   plsDate String
@@ -136,7 +139,7 @@ model Pls {
 }
 
 model WellWaterLevel {
-  id              Int      @id @default(autoincrement())
+  id              Int    @id @default(autoincrement())
   // userId          Int
   hipName         String
   wellLevelDate   String

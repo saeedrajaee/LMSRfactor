@@ -12,10 +12,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CreateLibraryRequest } from './dto/create-library.request';
-import { CurrentUser } from '../auth/current-user.decorator';
-import { TokenPayload } from '../auth/token-payload.interface';
 import { LibrarysService } from './librarys.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -29,7 +26,6 @@ export class LibrarysController {
   @Post()
   async createLibrary(
     @Body() body: CreateLibraryRequest,
-    @CurrentUser() user: TokenPayload,
 
   ) {
     return this.librarysService.createLibrary(body);

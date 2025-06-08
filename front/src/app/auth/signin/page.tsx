@@ -1,18 +1,16 @@
 "use client";
 
-import { Button, Stack, TextField, Container, Typography } from "@mui/material";
-import NextLink from "next/link";
+import { Button, TextField, Container, Typography } from "@mui/material";
 import { useActionState } from "react";
 import Box from "@mui/material/Box";
-
 import logo from "@/assets/icons/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { signUp } from "@/lib/auth";
+import { signIn } from "@/lib/auth";
 
-export default function Signup() {
-  const [state, action] = useActionState(signUp, undefined);
 
+export default function Login() {
+  const [state, action] = useActionState(signIn, undefined);
   return (
     <Container component="main" maxWidth="xs" sx={{ mt: 8 }}>
       <Box
@@ -36,16 +34,7 @@ export default function Signup() {
             margin="normal"
             required
             fullWidth
-            id="name"
-            label="نام و نام خانوادگی"
-            name="name"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="username"
+            id="email"
             label="نام کاربری"
             name="email"
             autoFocus
@@ -65,12 +54,13 @@ export default function Signup() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            ثبت نام
+            ورود
           </Button>
 
-          <Link href="/auth/signin" className="self-center">
-            ورود
+          <Link href="/auth/signup" className="self-center">
+            ثبت نام
           </Link>
+
         </form>
       </Box>
     </Container>
