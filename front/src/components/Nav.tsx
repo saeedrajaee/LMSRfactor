@@ -10,6 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from '@mui/icons-material/Logout';
 import * as React from "react";
 import { useRouter } from "next/navigation";
+import SignInButton from "./SignInButton";
 
 export default function Nav() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function Nav() {
         borderBottom: "1px solid #e9e9e9",
       }}
     >
+      {/* <SignInButton/> */}
       <Stack
         spacing={2}
         direction="row"
@@ -63,11 +65,12 @@ export default function Nav() {
           variant="outlined"
           color="error"
           sx={{ borderRadius: 10 }}
-          onClick={() => router.push("/auth/login")}
+          onClick={() => router.push("/auth/signin")}
         >
           <LogoutIcon sx={{ paddingRight: 1 ,fontSize: 30}}/>
           خروج
         </Button>
+        {/* <SignInButton/> */}
       </Stack>
     </Box>
   );

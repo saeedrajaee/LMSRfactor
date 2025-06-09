@@ -8,28 +8,6 @@ import { fetchExternalImage } from "next/dist/server/image-optimizer";
 import { threadId } from "worker_threads";
 import { post } from "@/hooks/fetch";
 
-
-// export async function signUp(
-//   prevState: any,
-//   formData: FormData
-// ) {
-//   const form = Object.fromEntries(formData);
-//   const validationFields = SignupFormSchema.safeParse({
-//     name: formData.get("name"),
-//     email: formData.get("email"),
-//     password: formData.get("password"),
-//   });
-//   // console.log("validationFields,....111............",validationFields)
-//   if (!validationFields.success) {
-//     return {
-//       error: validationFields.error.flatten().fieldErrors,
-//     };
-//   }
-//   const { error } = await post("auth/signup", formData);
-//   redirect("/auth/signin");
-// }
-
-
 export async function signUp(
   state: FormState,
   formData: FormData
@@ -91,8 +69,8 @@ export async function signIn(
       accessToken: result.accessToken,
       refreshToken: result.refreshToken,
     });
-    console.log("result........", result);
-    redirect("/");
+    console.log("...........result........", result);
+    redirect("/admin");
   } else {
     return {
       message:

@@ -57,6 +57,11 @@ const data = [
         label: 'کتابخانه',
         path:"/admin"
     },
+        {
+        id: 'item11',
+        label: 'داشبورد',
+        path:"/dashboard1"
+    },
     // {
     //     id: 'item1',
     //     label: 'ورود اطلاعات',

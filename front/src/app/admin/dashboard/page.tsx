@@ -7,8 +7,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from '@mui/material/Grid';
 import Link from "next/link";
+import { getSession } from "@/lib/session";
 
-export default function StandardImageList() {
+  const StandardImageList = async () => {
+    const session = await getSession();
+  console.log("Dasboadr Session...................",session?.user.name)
+
   return (
     <>
       <Grid container direction="row" spacing={2}>
@@ -244,3 +248,4 @@ export default function StandardImageList() {
     </>
   );
 }
+export default StandardImageList;
