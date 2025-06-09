@@ -25,10 +25,6 @@ const Dashboard = async () => {
           <Link href={"/api/auth/signout"}>Sign Out</Link>
         </>
       )}
-      
- 
-  
-  
   
   </>
 };
