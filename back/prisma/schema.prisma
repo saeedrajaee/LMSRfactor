@@ -1,0 +1,171 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 Int     @id @default(autoincrement())
+  name               String
+  email              String  @unique
+  password           String
+  hashedRefreshToken String?
+  // accumulationTerm    AccumulationTerm[]
+  // copperConcentration CopperConcentration[]
+  // flow                Flow[]
+  // gcps                Gcps[]
+  // piezometerAcid      PiezometerAcid[]
+  // piezometerTemp      PiezometerTemp[]
+  // pls                 Pls[]
+  // wellWaterLevel      WellWaterLevel[]
+}
+
+model AccumulationTerm {
+  id               Int    @id @default(autoincrement())
+  // userId           Int
+  hipName          String
+  flowIn           Float
+  flowUnitIn       String
+  flowOut          Float
+  flowUnitOut      String
+  accumulationDate String
+  // user             User     @relation(fields: [userId], references: [id])
+  accumulationTerm Float
+}
+
+model CopperConcentration {
+  id         Int      @id @default(autoincrement())
+  // userId     Int
+  hipName    String
+  copConDate DateTime
+  copCon     Float
+  copConUnit String
+  // user       User     @relation(fields: [userId], references: [id])
+}
+
+model Flow {
+  id              Int      @id @default(autoincrement())
+  // userId          Int
+  hipName         String
+  flowDataIntDate DateTime
+  flowRate        Float
+  flowUnit        String
+  pad             String
+  // user            User     @relation(fields: [userId], references: [id])
+}
+
+model Gcps {
+  id        Int      @id @default(autoincrement())
+  // userId    Int
+  hipName   String
+  gcpName   String
+  gcpX      Float
+  gcpY      Float
+  gcpZ      Float
+  date      DateTime
+  gcpHeight Float
+  dDay      Int
+  dx        Float
+  dxR       Float
+  dxR1      Float
+  dy        Float
+  dyR       Float
+  dyR1      Float
+  dz        Float
+  dzR       Float
+  dzR1      Float
+  ds        Float
+  dsR       Float
+  dsR1      Float
+  dt        Float
+  dtR       Float
+  dtR1      Float
+  // user      User     @relation(fields: [userId], references: [id])
+}
+
+model PiezometerAcid {
+  id                      Int      @id @default(autoincrement())
+  // userId                  Int
+  hipName                 String
+  piezometerName          String
+  piezometerDate          DateTime
+  piezometerAcidLevel     Float
+  piezometerAcidLevelUnit String
+  // user                    User     @relation(fields: [userId], references: [id])
+}
+
+model PiezometerTemp {
+  id             Int      @id @default(autoincrement())
+  // userId         Int
+  hipName        String
+  piezometerName String
+  piezometerDate DateTime
+  piezometerTemp Float
+  tempUnit       String
+  // user           User     @relation(fields: [userId], references: [id])
+}
+
+model Pls {
+  id      Int      @id @default(autoincrement())
+  // userId  Int
+  hipName String
+  plsDate DateTime
+  fe      Float
+  feUnit  String
+  ph      Float
+  phUnit  String
+  eh      Float
+  ehUnit  String
+  ec      Float
+  ecUnit  String
+  t       Float
+  tUnit   String
+  tss     Float
+  tssUnit String
+  pb      Float
+  pbUnit  String
+
+  // user User @relation(fields: [userId], references: [id])
+}
+
+model WellWaterLevel {
+  id              Int      @id @default(autoincrement())
+  // userId          Int
+  hipName         String
+  wellLevelDate   DateTime
+  wellName        String
+  wellLevelHeight Float
+  wellLevelUnit   String
+  // user            User     @relation(fields: [userId], references: [id])
+}
+
+model Product {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  // userId      Int
+}
+
+model library {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  // user        User   @relation(fields: [userId], references: [id])
+  // userId      Int
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+  USER
+}
